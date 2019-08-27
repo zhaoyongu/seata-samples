@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +36,13 @@ public class BusinessController {
      */
     @PostMapping("/buy")
     ObjectResponse handleBusiness(@RequestBody BusinessDTO businessDTO){
-        LOGGER.info("请求参数：{}",businessDTO.toString());
+        LOGGER.info("模拟用户下单请求参数：{}",businessDTO.toString());
+        Assert.notNull(businessDTO, "参数businessDTO为空");
+        Assert.notNull(businessDTO.getCommodityCode(), "参数businessDTO为空");
+        Assert.notNull(businessDTO.getCount(), "参数businessDTO.count为空");
+        Assert.notNull(businessDTO.getAmount(), "参数businessDTO.amount为空");
+        Assert.notNull(businessDTO.getUserId(), "参数businessDTO.userId为空");
+        Assert.notNull(businessDTO.getName(), "参数businessDTO.name为空");
         return businessService.handleBusiness(businessDTO);
     }
 }
