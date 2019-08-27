@@ -22,7 +22,10 @@
     <!--创建订单-->
     <insert id="createOrder" keyProperty="id" useGeneratedKeys="true"
             parameterType="io.seata.samples.integration.order.entity.TOrder">
-      insert into t_order values(null,#{order.orderNo},#{order.userId},#{order.commodityCode},${order.count},${order.amount})
+        INSERT INTO t_order
+            (order_no, user_id, commodity_code, count, amount)
+        VALUES
+            (#{order.orderNo},#{order.userId},#{order.commodityCode},${order.count},${order.amount})
     </insert>
 
 </mapper>

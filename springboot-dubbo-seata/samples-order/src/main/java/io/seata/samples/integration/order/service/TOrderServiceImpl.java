@@ -60,12 +60,13 @@ public class TOrderServiceImpl extends ServiceImpl<TOrderMapper, TOrder> impleme
         orderDTO.setOrderNo(UUID.randomUUID().toString().replace("-",""));
         //生成订单
         TOrder tOrder = new TOrder();
-        BeanUtils.copyProperties(orderDTO,tOrder);
+        BeanUtils.copyProperties(orderDTO, tOrder);
         tOrder.setCount(orderDTO.getOrderCount());
         tOrder.setAmount(orderDTO.getOrderAmount().doubleValue());
         try {
             baseMapper.createOrder(tOrder);
         } catch (Exception e) {
+            logger.error("创建订单发生异常", e);
             response.setStatus(RspStatusEnum.FAIL.getCode());
             response.setMessage(RspStatusEnum.FAIL.getMessage());
             return response;
