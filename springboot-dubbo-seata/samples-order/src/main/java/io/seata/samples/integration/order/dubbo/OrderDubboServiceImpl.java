@@ -8,6 +8,7 @@ import io.seata.samples.integration.common.dubbo.OrderDubboService;
 import io.seata.samples.integration.common.response.ObjectResponse;
 import io.seata.samples.integration.order.service.ITOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @Author: heshouyou
@@ -15,8 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Date Created in 2019/1/23 15:59
  */
 @Service(version = "1.0.0",protocol = "${dubbo.protocol.id}",
-        application = "${dubbo.application.id}",registry = "${dubbo.registry.id}",
-        timeout = 3000)
+		application = "${dubbo.application.id}",registry = "${dubbo.registry.id}",
+		timeout = 3000)
+@Component
 public class OrderDubboServiceImpl implements OrderDubboService {
 
     @Autowired
