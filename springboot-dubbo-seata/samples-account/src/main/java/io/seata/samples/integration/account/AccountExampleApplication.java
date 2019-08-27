@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication(scanBasePackages = "io.seata.samples.integration.account")
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @MapperScan({"io.seata.samples.integration.account.mapper"})
 @EnableDubbo(scanBasePackages = "io.seata.samples.integration.account")
 public class AccountExampleApplication {

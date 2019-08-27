@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication(scanBasePackages = "io.seata.samples.integration.storage")
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @MapperScan({"io.seata.samples.integration.storage.mapper"})
 @EnableDubbo(scanBasePackages = "io.seata.samples.integration.storage")
 public class StorageExampleApplication {

@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication(scanBasePackages = "io.seata.samples.integration.call")
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @EnableDubbo(scanBasePackages = "io.seata.samples.integration.call")
 public class BusinessExampleApplication {
 
